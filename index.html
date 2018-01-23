@@ -12,8 +12,9 @@
         <div class="row">
             <div class="col-md-2">
                 <h2 id="todo-title">Todo</h2>
-                
-                <div id="todo-container" class="hide">
+
+                <!-- <div id="todo-container" class="hide"> -->
+                <div id="todo-container">
                     <ul id="todo">
                     </ul>
                     <p id="plus">+</p>
@@ -29,15 +30,27 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
     <script type="text/javascript" src="https://haganka.github.io/dom/dom.js"></script>
     <script type="text/javascript">
-    var time = moment().format('LT');
+        var time = moment().format('LT');
+        var toDoHTML = "";
+        // var toDoList = [];
 
-    var setTime = function() {
-        time = moment().format('LT');        
-        $("#time").text(time);
-        console.log("updating");
-    }
+        var setTime = function() {
+            time = moment().format('LT');
+            $("#time").text(time);
+        }
 
-    setInterval(setTime, 1000);
+        var addToList = function() {
+            
+            var userInput = prompt("What do you wanna do?");
+            toDoHTML += "<li>" + userInput + "</li>";
+
+            $("#todo").html(toDoHTML);
+
+            console.log(userInput);
+        }
+
+        setInterval(setTime, 1000);
+        $("#plus").on("click", addToList);
 
     </script>
 </body>
