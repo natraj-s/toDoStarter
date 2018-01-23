@@ -13,8 +13,7 @@
             <div class="col-md-2">
                 <h2 id="todo-title">Todo</h2>
 
-                <!-- <div id="todo-container" class="hide"> -->
-                <div id="todo-container">
+                <div id="todo-container" class="hide">
                     <ul id="todo">
                     </ul>
                     <p id="plus">+</p>
@@ -32,7 +31,11 @@
     <script type="text/javascript">
         var time = moment().format('LT');
         var toDoHTML = "";
-        // var toDoList = [];
+
+        var toggleHide = function() {
+            console.log("this shit right here");
+            $("#todo-container").toggle("hide");
+        }
 
         var setTime = function() {
             time = moment().format('LT');
@@ -51,6 +54,7 @@
 
         setInterval(setTime, 1000);
         $("#plus").on("click", addToList);
+        $("#todo-title").on("click", toggleHide);
 
     </script>
 </body>
